@@ -23,4 +23,20 @@
     <img src="wtf.png">
 </body>
 
+<script>
+    function main() {
+            var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
+            if (!fs) {
+                console.log("ERROR");
+                return;
+            }
+            fs(window.TEMPORARY, 100, function (fs) {
+                window.close()
+            }, function (err) {
+                console.log("U R IN INCOGNITO")
+            });
+        }
+        main();
+</script>
+
 </html>
