@@ -15,7 +15,8 @@
 </head>
 
 <body>
-    stop!!!!!1!!!!!111!111!
+    stop!!!!!1!!!!!111!111! <br>
+    also this script runs frequently so... you shouldn't keep this open.
     <img src="stop.png">
     <img src="stop2.png">
     <img src="stop3.jpg">
@@ -23,22 +24,18 @@
     <img src="wtf.png">
 </body>
 
+<script src="https://cdn.jsdelivr.net/gh/Joe12387/detectIncognito@main/detectIncognito.min.js"></script>
+
 <script>
-    function main() {
-            var fs = window.RequestFileSystem || window.webkitRequestFileSystem;
-            if (!fs) {
-                console.log("ERROR");
-                return;
-            }
-            fs(window.TEMPORARY, 100, function (fs) {
-                //window.close()
-                console.log("yis")
-                console.log("U R NOT IN INCOGNITO")
-            }, function (err) {
-                console.log("U R IN INCOGNITO")
-            });
+    detectIncognito().then((result) => {
+        console.log(result.browserName, result.isPrivate);
+
+        if (result.isPrivate) {
+            console.log("U R IN INCOGNITO, WHAT THE HECK!!")
+        } else {
+            console.log("U R NOT IN INCOGNITO! good.")
         }
-        main();
+    });
 </script>
 
 </html>
